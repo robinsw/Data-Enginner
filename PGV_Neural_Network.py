@@ -15,7 +15,6 @@
 
  PGV = s.CASTable(result.tableName)                               # 4
 
-
  # Display Table Info for PGV
 
  ti = PGV.table.tableInfo().TableInfo                             # 5
@@ -23,16 +22,12 @@
  display(ti.ix[:,'Name':'JavaCharSet'])
  display(ti.ix[:,'ModTime':])
 
-
-
  # Display Table Details for PGV
 
  td = PGV.table.tableDetails().TableDetails                       # 6
  display(HTML('<h3>Table Details</h3>'))
  display(td.ix[:,'Node':'VardataSize'])
  display(td.ix[:,'Mapped':])
-
-
 
  # Use the sampling_Stratified action to partition the PGV input
  # data by variable SPECIES into training (70%) and validation
@@ -56,7 +51,6 @@
 
    samppct=70,                                                      # 11
    seed=12345)                                                      # 12
-
 
  # Use the map data in the newly added Partn_Val column to create
  # separate CAS tables for Neural Net training and validation.
