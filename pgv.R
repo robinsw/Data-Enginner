@@ -39,7 +39,6 @@ sc <- spark_connect(master = "yarn-client",
  
 raw_PGV <- spark_read_csv(sc, "/home/cdsw/PGV_Load/pp_10_enc_v_t.csv")
                       
- 
 #head(raw_PGV)
  
 raw_PGV2 <- raw_PGV %>%
