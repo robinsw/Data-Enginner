@@ -4,9 +4,7 @@
 #
 # -------------------------------------------------------------------------
  
- 
 # list all the packages needed --------------------------------------------
- 
 packages <- c("tidyverse", "sparklyr", "reshape")
  
 # this will check all existing packages for the packages listed above
@@ -20,12 +18,10 @@ if (length(new_packages)) {
 # this will load all the listed packages
 invisible(lapply(packages, library,character.only = T))
  
- 
 library(readxl)
 PPG_Xwalk <-read_excel("/home/cdsw/PPG_xwalk_20191115.xlsx")
  
 db_tbl <- read_excel("/home/cdsw/VIIP2019_DB_Tables_payment_test10_16DEC2019_qa.xlsx", sheet = "tbl_scorecard_domain_w_payment")
- 
  
 # -- Open a Spark session
 config <- spark_config()
@@ -37,9 +33,7 @@ sc <- spark_connect(master = "yarn-client",
                     app_name = "matt_payment_workbook")
  
 #spark_disconnect(sc)
- 
- 
- 
+
 # aggregate payment to PPG by domain;
 sc_db <- copy_to(sc, db_tbl, overwrite = TRUE)
  
@@ -55,8 +49,7 @@ head(pay_MY18_2)
 pay_MY18_3 <- pay_MY18_2 %>%
   melt(id =(c("VIIP_PPG", "domain"))) %>%
   cast(VIIP_PPG + variable ~ domain)
- 
- 
+
 head(pay_MY18_3)
 head(pay_MY18_2)
 class( sc_db)
@@ -76,21 +69,14 @@ mcal_mbrs_mo2 <- (na.omit(mcal_mbrs_mo)) %>%
   dplyr::mutate(pct_bcsc = BCSC/tot_mbrs) %>%
   dplyr::mutate(pct_mcla = MCLA/tot_mbrs)
  
- 
- 
 tail(pay_MY18_2)
 test <- xtabs('encounter timeliness',"VIIP_PPG", pay_MY18_2)
- 
  
 md <- melt(pay_MY18_2, id=(c("VIIP_PPG", "domain", "payment_amount")))
 * aggregate payment to PPG by domain;
  
- 
- 
 library(reshape)
 md <- melt(mydata, id=(c("id", "time")))
- 
- 
  
 proc sql;
 create table pay_MY18_2 as
