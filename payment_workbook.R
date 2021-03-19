@@ -39,7 +39,6 @@ sc_db <- copy_to(sc, db_tbl, overwrite = TRUE)
  
 pay_MY18_2 <- sc_db %>%
   dplyr::select("VIIP_PPG", "domain", "payment_amount") %>%
-  dplyr::filter(domain  %in% c('hedis', 'encounter timeliness', 'pat_sat', 'utilization')
                 ,!is.na(payment_amount), VIIP_PPG %!in% c('LAAV', 'HMG')) %>%
   dplyr::distinct() %>%
   dplyr::collect()
@@ -56,7 +55,7 @@ class( sc_db)
  
 pay_MY18_3 <-(na.omit(pay_MY18_2))%>%
 melt(id=(c("VIIP_PPG", "domain", "payment_amount")))%>%
-dplyr::mutate('hedis', 'encounter timeliness', 'pat_sat', 'utilization') 
+dplyr::mutate('pgv', 'encounter timeliness', 'pat_sat', 'utilization') 
  
 # cleanup and transpose;
 library(reshape)
@@ -85,7 +84,7 @@ VIIP_PPG
 ,domain
 ,payment_amount
 from pay_MY18
-where domain in ('hedis', 'encounter timeliness', 'pat_sat', 'utilization');
+where domain in ('pgv', 'encounter timeliness', 'pat_sat', 'utilization');
 quit;
  
 data pay_MY18_2; set pay_MY18_2;
