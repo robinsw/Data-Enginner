@@ -1,4 +1,3 @@
-
 #' Run a CAS Action by Name
 #'
 #
@@ -69,7 +68,6 @@ loadActionSet <- function(conn, actionSet=""){
   gen.functions(conn, actionSet)
   swat::check_for_cas_errors(res)
 }
-
 
 #' List CAS Action Sets
 #'
