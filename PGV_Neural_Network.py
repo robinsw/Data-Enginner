@@ -1,30 +1,30 @@
- import swat                                                       #1
+ import swat                                                      
 
  #  Specify the host and port information match your site
 
- s = swat.CAS("cloud.example.com", 8561)
+ s = swat.CAS("example.com", 8777)
 
- from IPython.core.display import display                          # 2
+ from IPython.core.display import display                          
 
  result = s.table.upload(
    path="/home/viya/PGV.csv",
    casout={
      "name":"PGV",
-     "replace":True}                                               # 3
+     "replace":True}                                               
    )
 
- PGV = s.CASTable(result.tableName)                               # 4
+ PGV = s.CASTable(result.tableName)                              
 
  # Display Table Info for PGV
 
- ti = PGV.table.tableInfo().TableInfo                             # 5
+ ti = PGV.table.tableInfo().TableInfo                             
  display(HTML('<h3>Table Information</h3>'))
  display(ti.ix[:,'Name':'JavaCharSet'])
  display(ti.ix[:,'ModTime':])
 
  # Display Table Details for PGV
 
- td = PGV.table.tableDetails().TableDetails                       # 6
+ td = PGV.table.tableDetails().TableDetails                       
  display(HTML('<h3>Table Details</h3>'))
  display(td.ix[:,'Node':'VardataSize'])
  display(td.ix[:,'Mapped':])
@@ -33,47 +33,47 @@
  # data by variable SPECIES into training (70%) and validation
  # (30%) tables.
 
- result = s.sampling.stratified(                                    # 7
+ result = s.sampling.stratified(                                    
       table={
      "name":"PGV",
      "groupby":[{
        "name":"species"}]},
 
-     partind=True,                                                  # 8
+     partind=True,                                                  
 
-   output={                                                         # 9
+   output={                                                        
      "casout":{
        "name":"PGV_partitioned",
        "replace":True},
        "copyVars":"ALL",
-       "partindname":"Partn_Val"                                    # 10
+       "partindname":"Partn_Val"                                    
        },
 
-   samppct=70,                                                      # 11
-   seed=12345)                                                      # 12
+   samppct=70,                                                      
+   seed=12345)                                                      
 
  # Use the map data in the newly added Partn_Val column to create
  # separate CAS tables for Neural Net training and validation.
 
- trnTable={                                                         # 13
+ trnTable={                                                         
    "name":"PGV_partitioned",
    "where":"1=Partn_Val"}
 
- vldTable={                                                         # 14
+ vldTable={                                                         
    "name":"PGV_partitioned",
    "where":"0=Partn_Val"}
 
  -- Use the annTrain action to create and train a MLP neural network
  -- for a nominal target SPECIES.
 
- results = s.neuralNet.annTrain(                                    # 15
+ results = s.neuralNet.annTrain(                                    
    table=trnTable,
    target="species",
 
-   "nominals"=[{                                                    # 16
+   "nominals"=[{                                                    
      "name":"species"}],
 
-   inputs=[{                                                        # 17
+   inputs=[{                                                       
      "name":{
        "sepallength",
        "sepalwidth",
