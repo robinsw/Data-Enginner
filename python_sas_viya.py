@@ -22,8 +22,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 # Establish a session with SAS Viya
 Session('hostname', 'username', 'password')
 
-project = 'Boston Housing'
-model_name = 'Boston Regression'
+project = 'Los Angeles Housing'
+model_name = 'Los Angeles Regression'
 
 # Fit a linear regression model using sci-kit learn
 lm = LinearRegression()
