@@ -2,7 +2,7 @@
 
  #  Specify the host and port information match your site
 
- s = swat.CAS("dsascontrol.org", 8777)
+ s = swat.CAS("dsasspre.org", 8777)
 
  from IPython.core.display import display                          
 
