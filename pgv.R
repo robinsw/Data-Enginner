@@ -37,7 +37,7 @@ sc <- spark_connect(master = "yarn-client",
                     config = config,
                     app_name = "raw_PGV")
  
-raw_PGV <- spark_read_csv(sc, "/home/cdsw/PGV_Load/pp_10_enc_v_t.csv")
+raw_PGV <- spark_read_csv(sc, "/home/cdsw/PGV_Load/pp_18_enc_v_t.csv")
                       
 #head(raw_PGV)
  
@@ -75,7 +75,7 @@ for (i in 1:nrow(raw_PGV_list)) {
   
     print(class(filename))
     
-    meas_list <- paste0("hdfs dfs -rm -r /user/hive/warehouse/PGV_my2018.db/ahu_member_detail")
+    meas_list <- paste0("hdfs dfs -rm -r /user/hive/warehouse/PGV_my2021.db/ahu_member_detail")
     meas_list
     system(meas_list, intern = TRUE)
     
@@ -86,7 +86,7 @@ for (i in 1:nrow(raw_PGV_list)) {
   
     spark_write_table(
       raw_PGV,
-      name = paste0("viip_my2019.VIIP_EV_MY2019_04NOV2020"),
+      name = paste0("viip_my2021.VIIP_EV_MY2021_04NOV2021"),
       mode = 'overwrite'
     ) 
 }
