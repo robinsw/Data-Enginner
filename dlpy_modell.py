@@ -8,10 +8,10 @@ from sasctl.tasks import register_model, publish_model
 
 
 # Connect to the CAS server
-s = swat.CAS('hostname', 5570, 'username', 'password')
+s = swat.CAS('dsascontrol', 5570, 'robinswu', 'hp$afm67')
 
 # Upload the training data to CAS
-tbl = s.upload('data/iris.csv').casTable
+tbl = s.upload('/home/viya/pgv.csv').casTable
 
 # Construct a simple neural network
 model = Sequential(conn=s, model_table='dlpy_model')
@@ -32,7 +32,7 @@ s.deeplearn.dlexportmodel(modelTable=model.model_table, initWeights=model.model_
 astore = s.CASTable('astore_table')
 
 # Connect to the SAS environment
-with Session('hostname', 'username', 'password'):
+with Session('dsascontrol', 5570, 'robinswu', 'hp$afm67'):
     # Register the trained model by providing:
     #  - the ASTORE containing the model
     #  - a name for the model
