@@ -5,7 +5,7 @@ from sasctl import Session
 from sasctl.tasks import register_model, publish_model
 
 
-with swat.CAS('hostname', 5570, 'username', 'password') as cas:
+with swat.CAS('dsascontrol.org', 5570, 'robinswu', 'ucsb%fsj') as cas:
     # Load the regression actions in CAS
     cas.loadactionset('regression')
 
@@ -25,7 +25,7 @@ with swat.CAS('hostname', 5570, 'username', 'password') as cas:
 
     # Register the model in SAS Model Manager, creating the "Boston Housing"
     # project if it doesn't already exist
-    model = register_model(astore, 'Linear Regression', 'Boston Housing', force=True)
+    model = register_model(astore, 'Linear Regression', 'Los Angeles Housing', force=True)
 
     # Publish the model to a real-time scoring engine
     module = publish_model(model, 'maslocal')
