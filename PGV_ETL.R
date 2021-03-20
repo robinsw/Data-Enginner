@@ -4,8 +4,7 @@
 #  Program to load all PGV files and add ppg and license_no
 #
 # -------------------------------------------------------------------------
- 
- 
+
 # list all the packages needed --------------------------------------------
  
 packages <- c("tidyverse", "sparklyr", "readxl", "rlang", "httr")
