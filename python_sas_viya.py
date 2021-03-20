@@ -13,17 +13,17 @@ from sasctl.services import model_repository as mr
 from sasctl.services import model_management as mm
 
 
-data = sklearn.datasets.load_boston()
+data = sklearn.datasets.load_Los_Angeles()
 X = pd.DataFrame(data.data, columns=data.feature_names)
 y = pd.DataFrame(data.target, columns=['Price'])
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
 # Establish a session with SAS Viya
-Session('hostname', 'username', 'password')
+Session('dsasspre.org', 'robinswu', 'h$tyvsu&')
 
-project = 'Boston Housing'
-model_name = 'Boston Regression'
+project = 'Los Angeles Housing'
+model_name = 'Los Angeles Regression'
 
 # Fit a linear regression model using sci-kit learn
 lm = LinearRegression()
