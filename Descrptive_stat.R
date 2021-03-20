@@ -1,8 +1,5 @@
-
 # CAS descriptive statistics
-
 #' Maximum Values
-#'
 #' @param x CASTable.
 #'
 #' @seealso \code{cas.max}
