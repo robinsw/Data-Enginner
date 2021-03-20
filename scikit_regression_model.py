@@ -6,7 +6,7 @@ from sklearn.ensemble import GradientBoostingRegressor
 
 
 # Convert the local CSV file into a Pandas DataFrame
-df = pd.read_csv('/home/viya/data/boston_house_prices.csv')
+df = pd.read_csv('/home/viya/data/Los_Angeles_house_prices.csv')
 
 # The model input data (X) is every column in the DataFrame except the target.
 # The target (y) is equal to the median home value.
