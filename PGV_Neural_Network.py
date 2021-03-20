@@ -80,30 +80,30 @@
        "petallength",
        "petalwidth"}}
      ],
-   listNode="ALL",                                                  # 18
-   arch="MLP",                                                      # 19
-   hiddens={2},                                                     # 20
-   combs={"LINEAR"},                                                # 21
-   targetAct="SOFTMAX",                                             # 22
-   errorFunc="ENTROPY",                                             # 23
-   randDist="UNIFORM",                                              # 24
-   scaleInit=1,                                                     # 25
-   seed=12345,                                                      # 26
-   std="MIDRANGE",                                                  # 27
+   listNode="ALL",                                                  
+   arch="MLP",                                                     
+   hiddens={2},                                                     
+   combs={"LINEAR"},                                                
+   targetAct="SOFTMAX",                                             
+   errorFunc="ENTROPY",                                            
+   randDist="UNIFORM",                                              
+   scaleInit=1,                                                     
+   seed=12345,                                                      
+   std="MIDRANGE",                                                  
 
-   validTable=vldTable,                                             # 28
+   validTable=vldTable,                                             
 
-   casOut={                                                         # 29
+   casOut={                                                         
      "name":"Nnet_train_model",
      "replace":True
      },
 
-   nloOpts={                                                        # 30
-     "lbfgsOpt":{"numCorrections":6},                               # 31
-     "optmlOpt":{                                                   # 32
-       "maxIters":250,                                              # 33
-       "fConv":1e-10                                                # 34
+   nloOpts={                                                        
+     "lbfgsOpt":{"numCorrections":6},                               
+     "optmlOpt":{                                                  
+       "maxIters":250,                                              
+       "fConv":1e-10                                                
        },
-     "validate":{"frequency":1}}                                    # 35
+     "validate":{"frequency":1}}                                   
    )
  
