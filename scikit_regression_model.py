@@ -19,9 +19,9 @@ model = GradientBoostingRegressor()
 model.fit(X, y)
 
 # Establish a session with Viya
-with Session('hostname', 'username', 'password'):
+with Session('dsasspre.org', 'robinswu', 'password'):
     model_name = 'GB Regression'
-    project_name = 'Boston Housing'
+    project_name = 'Los Angeles Housing'
 
     # Register the model in SAS Model Manager
     register_model(model, model_name, project_name, input=X, force=True)
