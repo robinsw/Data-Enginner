@@ -19,9 +19,9 @@ if (length(new_packages)) {
 invisible(lapply(packages, library,character.only = T))
  
 library(readxl)
-PPG_Xwalk <-read_excel("/home/cdsw/PPG_xwalk_20191115.xlsx")
+PPG_Xwalk <-read_excel("/home/cdsw/R/PPG_xwalk_20191115.xlsx")
  
-db_tbl <- read_excel("/home/cdsw/VIIP2019_DB_Tables_payment_test10_16DEC2019_qa.xlsx", sheet = "tbl_scorecard_domain_w_payment")
+db_tbl <- read_excel("/home/cdsw/R/VIIP2019_DB_Tables_payment_test10_16DEC2019_qa.xlsx", sheet = "tbl_scorecard_domain_w_payment")
  
 # -- Open a Spark session
 config <- spark_config()
