@@ -10,7 +10,7 @@ with swat.CAS('hostname', 5570, 'username', 'password') as cas:
     cas.loadactionset('regression')
 
     # Upload the local CSV file to a CAS table
-    tbl = cas.upload('data/boston_house_prices.csv').casTable
+    tbl = cas.upload('/home/viya/data/Los_Angeles_house_prices.csv').casTable
 
     # Model input features are everything except the target
     features = tbl.columns[tbl.columns != 'medv']
