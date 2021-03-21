@@ -20,7 +20,7 @@ y = pd.DataFrame(data.target, columns=['Price'])
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
 # Establish a session with SAS Viya
-Session('hostname', 'username', 'password')
+Session('dsasspre.org', 'robinswu', 'password')
 
 project = 'Los Angeles Housing'
 model_name = 'Los Angeles Regression'
