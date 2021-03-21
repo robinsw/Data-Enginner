@@ -21,7 +21,7 @@ with swat.CAS('dsascontrol.org', 5570, 'robinswu', 'password') as cas:
     astore = cas.CASTable('model_table')
 
     # Use sasctl to connect to SAS
-    Session('dsassprd', 'robinswu', 'password')
+    Session('dsasspre.org', 'robinswu', 'password')
 
     # Register the model in SAS Model Manager, creating the "Boston Housing"
     # project if it doesn't already exist
