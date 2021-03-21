@@ -2,8 +2,8 @@
 
  #  Specify the host and port information match your site
 
- s = swat.CAS("dsasspre.org", 8777)
-
+ s = swat.CAS('dsascontrol.org', 5570, 'robinswu', 'ucsb%fsj')
+          
  from IPython.core.display import display                          
 
  result = s.table.upload(
