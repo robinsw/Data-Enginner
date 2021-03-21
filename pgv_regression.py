@@ -8,10 +8,10 @@ from sasctl.tasks import register_model, publish_model
 
 
 # Connect to the CAS server
-s = swat.CAS('dsascontrol', 5570, 'robinswu', 'password')
+s = swat.CAS('dsascontrol.org', 5570, 'robinswu', 'password')
 
 # Upload the training data to CAS
-tbl = s.upload('/home/viya/pgv.csv').casTable
+tbl = s.upload('/home/viya/PGV.csv').casTable
 
 # Construct a simple neural network
 model = Sequential(conn=s, model_table='dlpy_model')
@@ -32,14 +32,14 @@ s.deeplearn.dlexportmodel(modelTable=model.model_table, initWeights=model.model_
 astore = s.CASTable('astore_table')
 
 # Connect to the SAS environment
-with Session('dsasspre', 5570, 'robinswu', 'password'):
+with Session('dsasspre', 'robinswu', 'password'):
     # Register the trained model by providing:
     #  - the ASTORE containing the model
     #  - a name for the model
     #  - a name for the project
     #
     # NOTE: the force=True option will create the project if it does not exist.
-    model = register_model(astore, 'Deep Learning', 'Iris', force=True)
+    model = register_model(astore, 'Deep Learning', 'PGV', force=True)
 
     # Publish the model to SAS® Micro Analytic Service (MAS).  Specifically to
     # the default MAS service "maslocal".
