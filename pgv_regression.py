@@ -8,7 +8,7 @@ from sasctl.tasks import register_model, publish_model
 
 
 # Connect to the CAS server
-s = swat.CAS('dsascontrol', 5570, 'robinswu', 'hp$afm67')
+s = swat.CAS('dsascontrol', 5570, 'robinswu', 'password')
 
 # Upload the training data to CAS
 tbl = s.upload('/home/viya/pgv.csv').casTable
@@ -32,7 +32,7 @@ s.deeplearn.dlexportmodel(modelTable=model.model_table, initWeights=model.model_
 astore = s.CASTable('astore_table')
 
 # Connect to the SAS environment
-with Session('dsascontrol', 5570, 'robinswu', 'hp$afm67'):
+with Session('dsasspre', 5570, 'robinswu', 'password'):
     # Register the trained model by providing:
     #  - the ASTORE containing the model
     #  - a name for the model
