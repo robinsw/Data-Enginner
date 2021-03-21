@@ -1,4 +1,3 @@
-#
 #  raw_PGV
 # 
 #  Program to load all PGV files and add ppg and license_no
