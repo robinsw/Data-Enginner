@@ -5,7 +5,7 @@ from sasctl import Session
 from sasctl.tasks import register_model, publish_model
 
 
-with swat.CAS('dsascontrol.org', 5570, 'robinswu', 'ucsb%fsj') as cas:
+with swat.CAS('dsascontrol.org', 5570, 'robinswu', 'password') as cas:
     # Load the regression actions in CAS
     cas.loadactionset('regression')
 
@@ -21,7 +21,7 @@ with swat.CAS('dsascontrol.org', 5570, 'robinswu', 'ucsb%fsj') as cas:
     astore = cas.CASTable('model_table')
 
     # Use sasctl to connect to SAS
-    Session('hostname', 'username', 'password')
+    Session('dsassprd', 'robinswu', 'password')
 
     # Register the model in SAS Model Manager, creating the "Boston Housing"
     # project if it doesn't already exist
