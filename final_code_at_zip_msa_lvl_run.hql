@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 set hive.mapred.reduce.tasks.speculative.execution=false;
 set hive.exec.parallel=false; 
 set mapreduce.map.speculative=false;
@@ -33,10 +25,7 @@ set hive.map.aggr.hash.force.flush.memory.threshold=0.8;
 set hive.map.aggr.hash.min.reduction=1;
 set hive.auto.convert.join=false;
 
-
 Use vadev;
-
-
 
 drop table if exists jg_mrch_db_zip_lvl_Hotels_final11;
 create table jg_mrch_db_zip_lvl_Hotels_final11 STORED AS SEQUENCEFILE as select tmp.* from(
@@ -66,7 +55,6 @@ corporation
 ,ratio_of_spend_per_card
 ,ratio_of_txn_per_card
 
-
 ,crd_cnt_merch
 ,us_tran_amt_merch
 ,txn_cnt_merch
@@ -79,7 +67,6 @@ corporation
 ,us_tran_amt_mcc_pre_yr
 ,txn_cnt_mcc_pre_yr
 ,crd_cnt_mcc_pre_yr
-
 
 from jg_mrch_db_zip_lvl_Hotels
 where merch_cnt > 5
@@ -112,7 +99,6 @@ corporation
 ,ratio_of_spend_per_card
 ,ratio_of_txn_per_card
 
-
 ,crd_cnt_merch
 ,us_tran_amt_merch
 ,txn_cnt_merch
@@ -129,8 +115,6 @@ corporation
 from jg_mrch_db_MSA_lvl_Hotels 
 where merch_cnt > 5
 )tmp;
-
-
 
 -------------------------------------------------------------;
 ---- total pv % calculations;
@@ -276,8 +260,6 @@ create table jg_mrch_db_zip_lvl_Hotels_final_store_lvl STORED AS SEQUENCEFILE as
 from jg_mrch_db_zip_lvl_Hotels_final22 
 where mrch_zip_radious = "0 Miles";
 
-
-
 drop table if exists jg_mrch_db_zip_lvl_Hotels_final33 purge;
 create table jg_mrch_db_zip_lvl_Hotels_final33 STORED AS SEQUENCEFILE as select 
 a.*
@@ -304,8 +286,6 @@ and trim(a.state) = trim(b.state)
 and trim(a.region) = trim(b.region)
 and trim(a.industry) = trim(b.industry)
 ;
-
-
 
 drop table if exists jg_mrch_db_zip_lvl_Hotels_final44;
 create table jg_mrch_db_zip_lvl_Hotels_final44 STORED AS SEQUENCEFILE as select *,
@@ -341,9 +321,6 @@ and (crd_cnt_merch > 10 or crd_cnt_merch <=0 or crd_cnt_merch is null)
 and (crd_cnt_mcc > 10 or crd_cnt_mcc <=0 or crd_cnt_mcc is null)
 --and ((trim(Mrch_zip_radious) in ('0 Miles','2 Miles','5 Miles','')) or Mrch_zip_radious is null)
 ;
-
-
-
 
 --------------------------------------------------------------;
 ----geting the list of zips in the readious;
