@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import linear_model
 # Read the CSV file :
-data = pd.read_csv(“Fuel.csv”)
+data = pd.read_csv(“C:\Users\OneDrive\desktop\Github\Fuel.csv”)
 data.head()
 # Let’s select some features to explore more :
 data = data[[“ENGINESIZE”,”CO2EMISSIONS”]]
