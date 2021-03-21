@@ -30,4 +30,3 @@ con <- dbConnect(odbc(),
                  UID = Sys.getenv("USR"),
                  PWD = Sys.getenv("PWD"),
                  port = 1433)
- 
