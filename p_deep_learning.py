@@ -6,7 +6,6 @@ from dlpy.layers import Dense, InputLayer, OutputLayer
 from sasctl import Session
 from sasctl.tasks import register_model, publish_model
 
-
 # Connect to the CAS server
 s = swat.CAS('dsascontrol.org', 5570, 'robinswu', 'password')
 
