@@ -3,8 +3,6 @@ set hive.exec.parallel=false;
 set mapreduce.map.speculative=false;
 set mapreduce.reduce.speculative=false;
 
-
-
 set hive.exec.compress.output=true;
 set hive.exec.compress.intermediate=true;
 set mapreduce.output.fileoutputformat.compress=true;
